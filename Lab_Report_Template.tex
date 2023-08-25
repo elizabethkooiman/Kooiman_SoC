@@ -1,0 +1,144 @@
+% Digital Logic Report Template
+% Created: 2020-01-10, John Miller
+
+%==========================================================
+%=========== Document Setup  ==============================
+
+% Formatting defined by class file
+\documentclass[11pt]{article}
+
+% ---- Document formatting ----
+\usepackage[margin=1in]{geometry}	% Narrower margins
+\usepackage{booktabs}				% Nice formatting of tables
+\usepackage{graphicx}				% Ability to include graphics
+
+%\setlength\parindent{0pt}	% Do not indent first line of paragraphs 
+\usepackage[parfill]{parskip}		% Line space b/w paragraphs
+%	parfill option prevents last line of pgrph from being fully justified
+
+% Parskip package adds too much space around titles, fix with this
+\RequirePackage{titlesec}
+\titlespacing\section{0pt}{8pt plus 4pt minus 2pt}{3pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{4pt plus 4pt minus 2pt}{-2pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{2pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+
+% ---- Hyperlinks ----
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}	% For URL's. Automatically links internal references.
+
+% ---- Code listings ----
+\usepackage{listings} 					% Nice code layout and inclusion
+\usepackage[usenames,dvipsnames]{xcolor}	% Colors (needs to be defined before using colors)
+
+% Define custom colors for listings
+\definecolor{listinggray}{gray}{0.98}		% Listings background color
+\definecolor{rulegray}{gray}{0.7}			% Listings rule/frame color
+
+% Style for Verilog
+\lstdefinestyle{Verilog}{
+	language=Verilog,					% Verilog
+	backgroundcolor=\color{listinggray},	% light gray background
+	rulecolor=\color{blue}, 			% blue frame lines
+	frame=tb,							% lines above & below
+	linewidth=\columnwidth, 			% set line width
+	basicstyle=\small\ttfamily,	% basic font style that is used for the code	
+	breaklines=true, 					% allow breaking across columns/pages
+	tabsize=3,							% set tab size
+	commentstyle=\color{gray},	% comments in italic 
+	stringstyle=\upshape,				% strings are printed in normal font
+	showspaces=false,					% don't underscore spaces
+}
+
+% How to use: \Verilog[listing_options]{file}
+\newcommand{\Verilog}[2][]{%
+	\lstinputlisting[style=Verilog,#1]{#2}
+}
+
+
+
+
+%======================================================
+%=========== Body  ====================================
+\begin{document}
+
+\title{ELC 5396 02 Lab XX: LAB TITLE}
+\author{Elizabeth Kooiman}
+
+\maketitle
+
+
+\section*{Summary}
+
+%Type the summary of your experiment and results here.  
+
+
+\section*{Q\&A}
+
+%Answer questions posed in the lab assignment here.
+%\begin{enumerate}
+%	\item What number, N, accomplished the goal of displaying all 4 digits clearly without flickering?
+%	\newline  With N=20, the desired result is accomplished. This is the correct number because the input clock is running at 100 MHz, and to get the frequency down to just above 50, the counting number needs to have 20 bits. 
+%\end{enumerate}
+
+\section*{Results}
+
+%In this section, put your simulation waveforms, results tables, pictures of hardware, and any other required items.
+
+
+%Example of how to include a figure
+%\begin{figure}[ht]\centering
+%	\includegraphics[width =\textwidth,trim = 6cm 7cm 0cm 2cm,clip]{counter_test_screenshot.jpg}
+%	\caption{Counter Test Waveform}
+%\label{CounterWaveform}
+%\end{figure}
+
+
+
+%Example of how to include a table
+%\begin{table}[ht]\centering
+%	\caption{Expected Results Table 2 Comp Converter Test}
+%	\label{ERT2Comp}
+%	\begin{tabular}{c|ccccccc}
+%		\toprule
+%		Time(ns): & 0 & 10 & 20 & 30 &40 &50 & 60\\
+%		\midrule
+%		Din: & 0 &7&-7&15&-15&1&-1\\
+%		sign:     & 0 & 0 & 1 & 0&1&0&1\\
+%		Dout:     & 0 & 7 & 7 & 15&15&1&1\\
+%		
+%		\bottomrule
+%	\end{tabular}
+%\end{table}
+
+%\begin{figure}[ht]\centering
+%	\includegraphics[width =\textwidth,trim = 6cm 7cm 0cm 2cm,clip]{FILENAME}
+%	\caption{2 Comp Converter Test Waveform}
+%	\label{ConverterTestWaveform}
+%\end{figure}
+
+%Example of how to reference a figure
+%Figure \ref{CounterWaveform}
+
+%Example of not trimmed screenshot
+%\begin{figure}[ht]\centering
+%	\includegraphics[width=0.3\textwidth]{FILENAME}
+%	\caption{Testing Part 1}
+%	\label{pic1}
+%\end{figure}
+
+
+\clearpage 
+
+
+
+\section*{Code}
+
+%Include all of the code you wrote or modified here.
+%\Verilog[caption = count module]{code/count_n.sv}
+%\Verilog[caption = unit to test count module]{code/counter.sv}
+%\Verilog[caption = count test]{code/counter_test.sv}
+%\Verilog[caption = 2 comp converter module]{code/converter_2comp.sv}
+%\Verilog[caption =  2 comp converter test]{code/converter_2comp_test.sv}
+%\Verilog[caption = top lab10 module]{code/top_lab10.sv}
+
+
+\end{document}
