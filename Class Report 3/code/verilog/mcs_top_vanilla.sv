@@ -63,8 +63,7 @@ module mcs_top_vanilla
    .mmio_wr_data(fp_wr_data),
    .mmio_rd_data(fp_rd_data),
    .sw(sw),
-   .led(led[11:0]),
-   .UserLED(led[15:12]),
+   .led(led),
    .rx(rx),
    .tx(tx)          
   );   

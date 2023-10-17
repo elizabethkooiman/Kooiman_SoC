@@ -17,7 +17,6 @@ module mmio_sys_vanilla
    // switches and LEDs
    input logic [N_SW-1:0] sw,
    output logic [N_LED-1:0] led,
-   output logic [3:0] UserLED,
    // uart
    input logic rx,
    output logic tx          
@@ -104,25 +103,10 @@ module mmio_sys_vanilla
     .din(sw)
     );
     
-    //slot 4: blinking leds 
-    blinking_led user_slot4(
-    .clk(clk), 
-    .reset(reset),
-    // slot interface
-    .cs(cs_array[`S4_USER]),
-    .read(mem_rd_array[`S4_USER]),
-    .write(mem_wr_array[`S4_USER]),
-    .addr(reg_addr_array[`S4_USER]),
-    .wr_data(wr_data_array[`S4_USER]),
-    .rd_data(rd_data_array[`S4_USER]),
-    //export 
-    .led_out(UserLED)
-    );
-    
    // assign 0's to all unused slot rd_data signals
    generate
       genvar i;
-      for (i=5; i<64; i=i+1) begin:  unused_slot_gen
+      for (i=4; i<64; i=i+1) begin:  unused_slot_gen
          assign rd_data_array[i] = 32'hffffffff;
       end
    endgenerate

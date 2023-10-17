@@ -74,6 +74,63 @@ void uart_check() {
    loop++;
 }
 
+void led_blink_core(GpoCore *led_p){
+   //0ms
+   led_p ->write(0x0000);
+   sleep_ms(50);
+   led_p ->write(0x0000);
+   sleep_ms(50);
+
+   //100ms
+   led_p ->write(0x0001);
+   sleep_ms(50);
+   led_p ->write(0x0000);
+   sleep_ms(50);
+
+   //200ms
+   led_p ->write(0x0002);
+   sleep_ms(50);
+   led_p ->write(0x0000);
+   sleep_ms(50);
+
+   //300
+   led_p ->write(0x0001);
+   sleep_ms(50);
+   led_p ->write(0x0000);
+   sleep_ms(50);
+
+   //400
+   led_p ->write(0x0007);
+   sleep_ms(50);
+   led_p ->write(0x0000);
+   sleep_ms(50);
+
+   //500
+   led_p ->write(0x0001);
+   sleep_ms(50);
+   led_p ->write(0x0000);
+   sleep_ms(50);
+
+   //600
+   led_p ->write(0x0002);
+   sleep_ms(50);
+   led_p ->write(0x0000);
+   sleep_ms(50);
+
+   //700
+   led_p ->write(0x0001);
+   sleep_ms(50);
+   led_p ->write(0x0000);
+   sleep_ms(50);
+
+   //800
+   led_p ->write(0x000f);
+   sleep_ms(50);
+   led_p ->write(0x0000);
+   sleep_ms(50);
+
+}
+
 // instantiate switch, led
 GpoCore led(get_slot_addr(BRIDGE_BASE, S2_LED));
 GpiCore sw(get_slot_addr(BRIDGE_BASE, S3_SW));
@@ -81,11 +138,12 @@ GpiCore sw(get_slot_addr(BRIDGE_BASE, S3_SW));
 int main() {
 
    while (1) {
-      timer_check(&led);
-      led_check(&led, 16);
-      sw_check(&led, &sw);
-      uart_check();
-      debug("main - switch value / up time : ", sw.read(), now_ms());
+      // timer_check(&led);
+      // led_check(&led, 16);
+      // sw_check(&led, &sw);
+      // uart_check();
+      led_blink_core(&led);
+      // debug("main - switch value / up time : ", sw.read(), now_ms());
    } //while
 } //main
 
